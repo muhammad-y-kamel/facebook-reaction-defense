@@ -1,0 +1,39 @@
+digraph DecisionFlow {
+  graph [rankdir=TB, bgcolor="#EEF2F5", pad=0.35, nodesep=0.38, ranksep=0.52, splines=polyline, fontname="Arial", fontcolor="#0B1320", fontsize=24, labelloc="t", labeljust="l", label="Moderation decision flow\nDetection is the default; apply is explicit and Page-scoped"];
+  node [shape=box, style="rounded,filled", fillcolor="#F8FAFB", color="#65788A", fontcolor="#0B1320", fontname="Arial", fontsize=11, penwidth=1.5, margin="0.16,0.11"];
+  edge [color="#315CE7", fontcolor="#40536A", fontname="Arial", fontsize=9, penwidth=1.6, arrowsize=0.72];
+
+  start [label="Begin locked monitoring cycle", fillcolor="#DCE5FF", color="#315CE7"];
+  ratings [label="Optional ratings check first\nrecord validated events; new Arabic match → alert only", fillcolor="#F7E4E1", color="#B94238"];
+  discover [label="Graph API discovers Page post / comment IDs\nnot reaction actors"];
+  scan [label="Complete the authenticated Playwright scan\nwithin configured page and actor caps"];
+  valid [label="Any row matches ANGRY / HAHA label + icon-source marker\nand a numeric profile link?", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  state [label="Atomically record / deduplicate matched observations\nand keep existing target statuses", fillcolor="#E4EAF0"];
+  mode [label="Explicit --apply enabled?", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  detection [label="Leave all pending targets\nfor a later apply run"];
+  pending [label="Stored target status = pending?\nincluding earlier detection-only cycles", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  keep [label="Keep non-pending status\nno automatic resubmission"];
+  no_action [label="No moderation outcome update\npreserve stored target status\nemit cycle summary"];
+  select [label="Select within the moderation action cap", fillcolor="#DCE5FF", color="#315CE7"];
+  origin [label="Reverify originating Page identity", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  fail [label="Fail closed\nsubmit nothing; record failed", fillcolor="#F7E4E1", color="#B94238"];
+  target [label="Confirm numeric target profile"];
+  block [label="Submit scoped block through Facebook UI", fillcolor="#DCE5FF", color="#315CE7"];
+  outcome [label="Moderation attempt outcome\natomic status: submitted / failed / uncertain\noptional Telegram summary"];
+
+  start -> ratings -> discover -> scan -> valid;
+  valid -> mode [label="no matches"];
+  valid -> state [label="yes"];
+  state -> mode [label="after bounded scan"];
+  mode -> detection [label="no"];
+  mode -> pending [label="yes"];
+  detection -> no_action;
+  pending -> keep [label="no"];
+  pending -> select [label="yes"];
+  keep -> no_action;
+  select -> origin;
+  origin -> fail [label="no"];
+  origin -> target [label="yes"];
+  target -> block -> outcome;
+  fail -> outcome;
+}

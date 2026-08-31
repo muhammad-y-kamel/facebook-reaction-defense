@@ -1,0 +1,91 @@
+digraph Architecture {
+  graph [rankdir=TB, bgcolor="#EEF2F5", pad=0.42, nodesep=0.5, ranksep=0.68, splines=polyline, fontname="Arial", fontcolor="#0B1320", fontsize=24, labelloc="t", labeljust="l", label="Facebook Page Reaction Abuse Defense\nMonitor → Detect → Deduplicate → Moderate → Log"];
+  node [shape=plain, fontname="Arial", fontcolor="#0B1320"];
+  edge [color="#315CE7", fontcolor="#40536A", fontname="Arial", fontsize=9, penwidth=1.8, arrowsize=0.75];
+
+  entry [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="12" COLOR="#315CE7" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#DCE5FF"><FONT POINT-SIZE="17"><B>Scheduler / CLI</B></FONT></TD></TR>
+      <TR><TD>Bounded monitoring cycle</TD></TR>
+      <TR><TD>Default detection-only</TD></TR>
+      <TR><TD>Explicit --apply option</TD></TR>
+    </TABLE>
+  >];
+
+  graph_api [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="12" COLOR="#65788A" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#E4EAF0"><FONT POINT-SIZE="17"><B>Graph content discovery</B></FONT></TD></TR>
+      <TR><TD>Page post identifiers</TD></TR>
+      <TR><TD>Optional comment identifiers</TD></TR>
+      <TR><TD>Optional Page ratings</TD></TR>
+      <TR><TD><FONT COLOR="#40536A">No reaction-actor collection</FONT></TD></TR>
+    </TABLE>
+  >];
+
+  ratings [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="11" COLOR="#B94238" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#F7E4E1"><B>Ratings path · checked first</B></TD></TR>
+      <TR><TD>Validate + record event</TD></TR>
+      <TR><TD>Arabic keyword match</TD></TR>
+      <TR><TD>Alert only, never block</TD></TR>
+    </TABLE>
+  >];
+
+  browser_scan [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="12" COLOR="#315CE7" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#DCE5FF"><FONT POINT-SIZE="17"><B>Authenticated browser scan</B></FONT></TD></TR>
+      <TR><TD>Playwright storage-state session</TD></TR>
+      <TR><TD>Bounded reaction-browser pages</TD></TR>
+      <TR><TD>ANGRY / HAHA label + icon-source marker</TD></TR>
+      <TR><TD>Numeric profile links only</TD></TR>
+    </TABLE>
+  >];
+
+  state [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="12" COLOR="#65788A" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#E4EAF0"><FONT POINT-SIZE="17"><B>Atomic JSON state</B></FONT></TD></TR>
+      <TR><TD>flock-protected single writer</TD></TR>
+      <TR><TD>Observation + target dedupe</TD></TR>
+      <TR><TD>Pending status persists across cycles</TD></TR>
+      <TR><TD>Atomic replace on save</TD></TR>
+    </TABLE>
+  >];
+
+  apply [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="12" COLOR="#315CE7" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#DCE5FF"><FONT POINT-SIZE="17"><B>Scoped moderation</B></FONT></TD></TR>
+      <TR><TD>Bounded pending-target selection</TD></TR>
+      <TR><TD>Reverify originating Page</TD></TR>
+      <TR><TD>Confirm numeric target profile</TD></TR>
+      <TR><TD>Facebook UI block submission</TD></TR>
+      <TR><TD><FONT COLOR="#B94238">Uncertain identity: fail closed</FONT></TD></TR>
+    </TABLE>
+  >];
+
+  output [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="12" COLOR="#65788A" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#E4EAF0"><FONT POINT-SIZE="17"><B>Outcome</B></FONT></TD></TR>
+      <TR><TD>pending / applying</TD></TR>
+      <TR><TD>submitted / failed / uncertain</TD></TR>
+      <TR><TD>Local operation log</TD></TR>
+      <TR><TD>Optional Telegram summary</TD></TR>
+    </TABLE>
+  >];
+
+  boundary [shape=note, style="filled", fillcolor="#F8FAFB", color="#65788A", fontsize=10, margin="0.14,0.1", label="Trust boundary\nGraph responses and Facebook UI are third-party controlled.\nConfiguration, storage state, and local JSON are operator controlled."];
+
+  { rank=same; entry; graph_api; ratings; }
+  { rank=same; browser_scan; state; }
+  { rank=same; apply; output; }
+
+  entry -> graph_api [label="discover content"];
+  entry -> state [label="load existing state", color="#65788A", fontcolor="#40536A"];
+  graph_api -> ratings [label="first, if enabled", color="#B94238", fontcolor="#7D2E28"];
+  graph_api -> browser_scan [label="post / comment IDs"];
+  browser_scan -> state [label="validated actor observations"];
+  ratings -> state [label="rating events", color="#B94238", fontcolor="#7D2E28"];
+  state -> apply [label="pending targets · --apply only"];
+  state -> output [label="detection-only summary"];
+  apply -> output [label="atomic status updates"];
+  boundary -> graph_api [style=dashed, arrowhead=none, color="#65788A"];
+}

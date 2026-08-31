@@ -1,0 +1,27 @@
+flowchart TB
+    ENTRY["Scheduler / CLI<br/>bounded cycle"] --> GRAPH["Graph API<br/>Page post IDs + optional comment IDs"]
+    ENTRY -->|load existing state| STATE["Atomic JSON state<br/>flock + atomic replace<br/>observation / target dedupe"]
+    ENTRY -.->|first, if enabled| RATINGS["Optional Page ratings<br/>validate + Arabic keyword match"]
+    RATINGS --> ALERT["Alert-only path<br/>never enters blocking"]
+    GRAPH -->|content IDs only| SCAN["Authenticated Playwright scan<br/>bounded reaction-browser pages"]
+    SCAN --> VALID["ANGRY / HAHA label + icon-source marker<br/>numeric profile links only"]
+    VALID --> STATE
+    RATINGS --> STATE
+    STATE --> MODE{"Detection-only<br/>or explicit --apply?"}
+    MODE -->|detect| OUT["Local state + operation log"]
+    MODE -->|--apply, bounded| PAGE{"Originating Page<br/>reverified?"}
+    PAGE -->|no| STOP["Fail closed<br/>no block submission"]
+    PAGE -->|yes| TARGET["Confirm numeric target profile"]
+    TARGET --> BLOCK["Facebook UI<br/>scoped block submission"]
+    STOP --> OUT
+    BLOCK --> OUT
+    OUT -->|if configured| TG["Optional Telegram<br/>summary"]
+
+    classDef primary fill:#DCE5FF,stroke:#315CE7,color:#0B1320,stroke-width:2px;
+    classDef decision fill:#315CE7,stroke:#2446B8,color:#F8FAFB,stroke-width:2px;
+    classDef neutral fill:#F8FAFB,stroke:#65788A,color:#0B1320;
+    classDef signal fill:#F7E4E1,stroke:#B94238,color:#0B1320;
+    class ENTRY,SCAN,BLOCK primary;
+    class MODE,PAGE decision;
+    class GRAPH,VALID,STATE,TARGET,OUT,TG neutral;
+    class RATINGS,ALERT,STOP signal;

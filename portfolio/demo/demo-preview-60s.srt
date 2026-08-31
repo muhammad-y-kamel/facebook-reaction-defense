@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:07,500
+I built a defense workflow for coordinated Angry and Haha reaction abuse on Facebook Pages.
+
+2
+00:00:07,500 --> 00:00:15,000
+I check optional Page ratings first through Graph. New Arabic keyword matches can alert, but never enter blocking.
+
+3
+00:00:15,000 --> 00:00:22,500
+I use Graph only to discover post and comment IDs, then authenticated Playwright scans bounded reaction-browser pages.
+
+4
+00:00:22,500 --> 00:00:30,000
+I require an Angry/Haha label plus its icon-source marker before accepting a numeric profile, then deduplicate it in atomic JSON state.
+
+5
+00:00:30,000 --> 00:00:37,500
+Detection-only makes read-only browser scans. Explicit apply selects a bounded pending set, including targets from earlier cycles.
+
+6
+00:00:37,500 --> 00:00:45,000
+For each selected target, I reverify its originating Page and confirm the numeric profile.
+
+7
+00:00:45,000 --> 00:00:52,500
+I fail closed on uncertainty. Otherwise I submit the Facebook UI block and atomically record submitted, failed, or uncertain.
+
+8
+00:00:52,500 --> 00:01:00,000
+This is the complete Monitor, Detect, Deduplicate, Moderate, and Log workflow I designed, built, deployed, and operated.

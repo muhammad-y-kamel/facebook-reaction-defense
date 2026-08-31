@@ -1,0 +1,35 @@
+digraph Sequence {
+  graph [rankdir=TB, bgcolor="#EEF2F5", pad=0.35, nodesep=0.35, ranksep=0.5, splines=polyline, fontname="Arial", fontcolor="#0B1320", fontsize=24, labelloc="t", labeljust="l", label="Operational sequence\nContent discovery, browser detection, atomic state, and scoped moderation"];
+  node [shape=box, style="rounded,filled", fillcolor="#F8FAFB", color="#65788A", fontcolor="#0B1320", fontname="Arial", fontsize=11, penwidth=1.5, margin="0.16,0.11"];
+  edge [color="#315CE7", fontcolor="#40536A", fontname="Arial", fontsize=9, penwidth=1.6, arrowsize=0.72];
+
+  session [label="1  Validate storage state and open\none authenticated Playwright session", fillcolor="#DCE5FF", color="#315CE7"];
+  start [label="2  Scheduler / CLI begins a bounded cycle\nunder an exclusive JSON state lock"];
+  ratings [label="3  If enabled, Graph API checks Page ratings first\nnew Arabic keyword match → alert only", fillcolor="#F7E4E1", color="#B94238"];
+  discover [label="4  Graph API discovers Page post IDs\nand optional comment IDs"];
+  scan [label="5  Playwright scans each reaction browser\nwithin configured page and actor caps", fillcolor="#DCE5FF", color="#315CE7"];
+  validate [label="6  Match ANGRY / HAHA label + icon-source marker\nthen accept numeric profile links only"];
+  state [label="7  Atomically deduplicate into JSON\nand preserve each target's stored status", fillcolor="#E4EAF0"];
+  mode [label="8  Explicit --apply enabled after detection?", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  detect [label="Detection-only exit\npending state already saved\nrecord monitoring summary"];
+  select [label="9  Select a bounded set where status = pending\nincluding targets from earlier cycles", fillcolor="#DCE5FF", color="#315CE7"];
+  pending [label="Pending target selected?", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  no_action [label="No target selected\nno moderation outcome update\nreport selected = 0"];
+  origin [label="10  Reverify the target's originating Page identity"];
+  verified [label="Originating Page verified?", shape=diamond, fillcolor="#315CE7", color="#2446B8", fontcolor="#F8FAFB"];
+  fail [label="Fail closed before submission\nrecord failed", fillcolor="#F7E4E1", color="#B94238"];
+  block [label="11  Confirm numeric target profile\nand submit block through Facebook UI", fillcolor="#DCE5FF", color="#315CE7"];
+  finish [label="12  Apply attempt outcome\natomically record submitted / failed / uncertain\noptional Telegram moderation summary"];
+
+  session -> start -> ratings -> discover -> scan -> validate -> state -> mode;
+  mode -> detect [label="no"];
+  mode -> select [label="yes"];
+  select -> pending;
+  pending -> no_action [label="no"];
+  pending -> origin [label="yes"];
+  origin -> verified;
+  verified -> fail [label="no"];
+  verified -> block [label="yes"];
+  fail -> finish;
+  block -> finish;
+}

@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph Manual["Manual Page response"]
+        direction TB
+        M1["Refresh posts and comments"] --> M2["Open reaction lists repeatedly"]
+        M2 --> M3["Rediscover the same accounts"]
+        M3 --> M4["Switch Page identity by hand"]
+        M4 --> M5["Record outcomes inconsistently"]
+    end
+
+    subgraph Built["The defense workflow I built"]
+        direction TB
+        B1["Graph API content discovery"] --> B2["Bounded Playwright actor collection<br/>label + icon-source marker check"]
+        B2 --> B3["Atomic JSON observation + target dedupe"]
+        B3 --> B4["Detection-only or explicit --apply"]
+        B4 --> B5["Origin Page reverified or fail closed"]
+        B5 --> B6["Recorded outcome + optional alert"]
+    end
+
+    M5 -->|I automated the operating loop| B1
+
+    classDef built fill:#DCE5FF,stroke:#315CE7,color:#0B1320,stroke-width:2px;
+    classDef manual fill:#F7E4E1,stroke:#B94238,color:#0B1320;
+    class M1,M2,M3,M4,M5 manual;
+    class B1,B2,B3,B4,B5,B6 built;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="895pt" height="437pt"
+ viewBox="0.00 0.00 895.00 437.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(30.24 406.74)">
+<title>BeforeAfter</title>
+<polygon fill="#eef2f5" stroke="none" points="-30.24,30.24 -30.24,-406.74 864.74,-406.74 864.74,30.24 -30.24,30.24"/>
+<text xml:space="preserve" text-anchor="middle" x="243.12" y="-349.7" font-family="Arial" font-size="24.00" fill="#0b1320">Manual moderation vs the automation I built</text>
+<g id="node1" class="node">
+<title>manual</title>
+<polygon fill="#f8fafb" stroke="none" points="0,-23.88 0,-317.62 229,-317.62 229,-23.88 0,-23.88"/>
+<polygon fill="#f7e4e1" stroke="none" points="1,-263.62 1,-316.62 228,-316.62 228,-263.62 1,-263.62"/>
+<text xml:space="preserve" text-anchor="start" x="17" y="-284.52" font-family="Arial" font-weight="bold" font-size="18.00" fill="#0b1320">Manual Page response</text>
+<text xml:space="preserve" text-anchor="start" x="17" y="-234.32" font-family="Arial" font-size="14.00" fill="#0b1320">Refresh posts and comments</text>
+<text xml:space="preserve" text-anchor="start" x="17" y="-186.57" font-family="Arial" font-size="14.00" fill="#0b1320">Open reaction lists repeatedly</text>
+<text xml:space="preserve" text-anchor="start" x="17" y="-138.82" font-family="Arial" font-size="14.00" fill="#0b1320">Rediscover the same accounts</text>
+<text xml:space="preserve" text-anchor="start" x="17" y="-91.08" font-family="Arial" font-size="14.00" fill="#0b1320">Switch Page identity by hand</text>
+<text xml:space="preserve" text-anchor="start" x="17" y="-43.33" font-family="Arial" font-size="14.00" fill="#0b1320">Record outcomes inconsistently</text>
+<polygon fill="none" stroke="#b94238" points="0,-23.88 0,-317.62 229,-317.62 229,-23.88 0,-23.88"/>
+</g>
+<g id="node2" class="node">
+<title>built</title>
+<polygon fill="#f8fafb" stroke="none" points="535,0 535,-341.5 834.5,-341.5 834.5,0 535,0"/>
+<polygon fill="#dce5ff" stroke="none" points="536,-287.5 536,-340.5 833.5,-340.5 833.5,-287.5 536,-287.5"/>
+<text xml:space="preserve" text-anchor="start" x="562.88" y="-308.4" font-family="Arial" font-weight="bold" font-size="18.00" fill="#0b1320">The defense workflow I built</text>
+<text xml:space="preserve" text-anchor="start" x="552" y="-258.2" font-family="Arial" font-size="14.00" fill="#0b1320">Graph API content discovery</text>
+<text xml:space="preserve" text-anchor="start" x="552" y="-210.45" font-family="Arial" font-size="14.00" fill="#0b1320">Playwright label + icon&#45;source marker check</text>
+<text xml:space="preserve" text-anchor="start" x="552" y="-162.7" font-family="Arial" font-size="14.00" fill="#0b1320">Atomic JSON observation + target dedupe</text>
+<text xml:space="preserve" text-anchor="start" x="552" y="-114.95" font-family="Arial" font-size="14.00" fill="#0b1320">Detection&#45;only or explicit &#45;&#45;apply</text>
+<text xml:space="preserve" text-anchor="start" x="552" y="-67.2" font-family="Arial" font-size="14.00" fill="#0b1320">Origin Page reverified or fail closed</text>
+<text xml:space="preserve" text-anchor="start" x="552" y="-19.45" font-family="Arial" font-size="14.00" fill="#0b1320">Recorded outcome + optional alert</text>
+<polygon fill="none" stroke="#315ce7" points="535,0 535,-341.5 834.5,-341.5 834.5,0 535,0"/>
+</g>
+<g id="edge1" class="edge">
+<title>manual&#45;&gt;built</title>
+<path fill="none" stroke="#315ce7" stroke-width="2.2" d="M228.79,-170.75C313.35,-170.75 430.01,-170.75 524.03,-170.75"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="2.2" points="523.76,-173.55 531.76,-170.75 523.76,-167.95 523.76,-173.55"/>
+<text xml:space="preserve" text-anchor="middle" x="382" y="-174.7" font-family="Times,serif" font-size="14.00" fill="#2446b8"> &#160;I automated the operating loop &#160;</text>
+</g>
+</g>
+</svg>

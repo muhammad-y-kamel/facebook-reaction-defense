@@ -1,0 +1,30 @@
+digraph BeforeAfter {
+  graph [rankdir=LR, bgcolor="#EEF2F5", pad=0.42, nodesep=0.6, ranksep=0.9, splines=polyline, fontname="Arial", fontcolor="#0B1320", fontsize=24, labelloc="t", labeljust="l", label="Manual moderation vs the automation I built"];
+  node [shape=plain, fontname="Arial", fontcolor="#0B1320"];
+  edge [color="#315CE7", penwidth=1.8, arrowsize=0.8];
+
+  manual [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="16" COLOR="#B94238" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#F7E4E1"><FONT POINT-SIZE="18"><B>Manual Page response</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT">Refresh posts and comments</TD></TR>
+      <TR><TD ALIGN="LEFT">Open reaction lists repeatedly</TD></TR>
+      <TR><TD ALIGN="LEFT">Rediscover the same accounts</TD></TR>
+      <TR><TD ALIGN="LEFT">Switch Page identity by hand</TD></TR>
+      <TR><TD ALIGN="LEFT">Record outcomes inconsistently</TD></TR>
+    </TABLE>
+  >];
+
+  built [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="16" COLOR="#315CE7" BGCOLOR="#F8FAFB">
+      <TR><TD BGCOLOR="#DCE5FF"><FONT POINT-SIZE="18"><B>The defense workflow I built</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT">Graph API content discovery</TD></TR>
+      <TR><TD ALIGN="LEFT">Playwright label + icon-source marker check</TD></TR>
+      <TR><TD ALIGN="LEFT">Atomic JSON observation + target dedupe</TD></TR>
+      <TR><TD ALIGN="LEFT">Detection-only or explicit --apply</TD></TR>
+      <TR><TD ALIGN="LEFT">Origin Page reverified or fail closed</TD></TR>
+      <TR><TD ALIGN="LEFT">Recorded outcome + optional alert</TD></TR>
+    </TABLE>
+  >];
+
+  manual -> built [label="  I automated the operating loop  ", color="#315CE7", fontcolor="#2446B8", penwidth=2.2];
+}

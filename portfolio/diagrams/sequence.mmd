@@ -1,0 +1,54 @@
+sequenceDiagram
+    autonumber
+    participant CLI as Scheduler / CLI
+    participant Graph as Facebook Graph API
+    participant Browser as Authenticated Playwright
+    participant State as Atomic JSON state
+    participant UI as Facebook UI
+    participant Notify as Log / optional Telegram
+
+    CLI->>Browser: Validate storage state and open bounded session
+
+    loop Each scheduled cycle
+    CLI->>State: Acquire exclusive flock and load / validate state
+
+    opt Page ratings enabled — separate first step
+        CLI->>Graph: Fetch Page ratings
+        Graph-->>CLI: Third-party controlled rating data
+        CLI->>State: Atomically deduplicate validated rating event
+        opt New event contains configured Arabic keyword
+            CLI->>Notify: Alert only, never enter block path
+        end
+    end
+
+    CLI->>Graph: Fetch Page post IDs and optional comment IDs
+    Graph-->>CLI: Content identifiers only, not reaction actors
+    loop Each content object within browser-page cap
+        CLI->>Browser: Scan authenticated reaction browser
+        Browser-->>CLI: Label + icon-source marker + numeric profile link
+        CLI->>State: Atomically deduplicate observation and target
+    end
+
+    alt Detection-only default
+        CLI->>State: Leave pending targets for a later run
+        CLI->>Notify: Record monitoring summary
+    else Explicit --apply
+        CLI->>State: Select bounded targets where status is pending
+        Note over CLI,State: Includes targets created in earlier detection-only cycles
+        alt No pending target selected
+            CLI->>Notify: Record selected = 0; no moderation outcome update
+        else Pending target or targets selected
+            loop Each selected pending target
+                CLI->>Browser: Reverify originating Page identity
+                alt Page identity cannot be verified
+                    Browser->>State: Record failed and submit nothing
+                else Page identity verified
+                    Browser->>UI: Confirm numeric target profile and submit block
+                    UI-->>Browser: Submitted, failed, or uncertain outcome
+                    Browser->>State: Atomically persist status
+                end
+            end
+            CLI->>Notify: Optional moderation outcome summary
+        end
+    end
+    end

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="912pt" height="1310pt"
+ viewBox="0.00 0.00 912.00 1310.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(25.2 1284.48)">
+<title>Sequence</title>
+<polygon fill="#eef2f5" stroke="none" points="-25.2,25.2 -25.2,-1284.48 887.26,-1284.48 887.26,25.2 -25.2,25.2"/>
+<text xml:space="preserve" text-anchor="middle" x="411.88" y="-1232.48" font-family="Arial" font-size="24.00" fill="#0b1320">Operational sequence</text>
+<text xml:space="preserve" text-anchor="middle" x="411.88" y="-1205.48" font-family="Arial" font-size="24.00" fill="#0b1320">Content discovery, browser detection, atomic state, and scoped moderation</text>
+<g id="node1" class="node">
+<title>session</title>
+<path fill="#dce5ff" stroke="#315ce7" stroke-width="1.5" d="M311.68,-1197.28C311.68,-1197.28 134.89,-1197.28 134.89,-1197.28 128.89,-1197.28 122.89,-1191.28 122.89,-1185.28 122.89,-1185.28 122.89,-1166.44 122.89,-1166.44 122.89,-1160.44 128.89,-1154.44 134.89,-1154.44 134.89,-1154.44 311.68,-1154.44 311.68,-1154.44 317.68,-1154.44 323.68,-1160.44 323.68,-1166.44 323.68,-1166.44 323.68,-1185.28 323.68,-1185.28 323.68,-1191.28 317.68,-1197.28 311.68,-1197.28"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-1178.91" font-family="Arial" font-size="11.00" fill="#0b1320">1 &#160;Validate storage state and open</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-1165.41" font-family="Arial" font-size="11.00" fill="#0b1320">one authenticated Playwright session</text>
+</g>
+<g id="node2" class="node">
+<title>start</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M324.06,-1117.44C324.06,-1117.44 122.52,-1117.44 122.52,-1117.44 116.52,-1117.44 110.52,-1111.44 110.52,-1105.44 110.52,-1105.44 110.52,-1086.6 110.52,-1086.6 110.52,-1080.6 116.52,-1074.6 122.52,-1074.6 122.52,-1074.6 324.06,-1074.6 324.06,-1074.6 330.06,-1074.6 336.06,-1080.6 336.06,-1086.6 336.06,-1086.6 336.06,-1105.44 336.06,-1105.44 336.06,-1111.44 330.06,-1117.44 324.06,-1117.44"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-1099.07" font-family="Arial" font-size="11.00" fill="#0b1320">2 &#160;Scheduler / CLI begins a bounded cycle</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-1085.57" font-family="Arial" font-size="11.00" fill="#0b1320">under an exclusive JSON state lock</text>
+</g>
+<g id="edge1" class="edge">
+<title>session&#45;&gt;start</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-1154C223.29,-1145.8 223.29,-1136.22 223.29,-1127.29"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-1127.56 223.29,-1120.36 220.77,-1127.56 225.81,-1127.56"/>
+</g>
+<g id="node3" class="node">
+<title>ratings</title>
+<path fill="#f7e4e1" stroke="#b94238" stroke-width="1.5" d="M340.56,-1037.6C340.56,-1037.6 106.02,-1037.6 106.02,-1037.6 100.02,-1037.6 94.02,-1031.6 94.02,-1025.6 94.02,-1025.6 94.02,-1006.76 94.02,-1006.76 94.02,-1000.76 100.02,-994.76 106.02,-994.76 106.02,-994.76 340.56,-994.76 340.56,-994.76 346.56,-994.76 352.56,-1000.76 352.56,-1006.76 352.56,-1006.76 352.56,-1025.6 352.56,-1025.6 352.56,-1031.6 346.56,-1037.6 340.56,-1037.6"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-1019.23" font-family="Arial" font-size="11.00" fill="#0b1320">3 &#160;If enabled, Graph API checks Page ratings first</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-1005.73" font-family="Arial" font-size="11.00" fill="#0b1320">new Arabic keyword match → alert only</text>
+</g>
+<g id="edge2" class="edge">
+<title>start&#45;&gt;ratings</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-1074.16C223.29,-1065.96 223.29,-1056.38 223.29,-1047.45"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-1047.72 223.29,-1040.52 220.77,-1047.72 225.81,-1047.72"/>
+</g>
+<g id="node4" class="node">
+<title>discover</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M313.56,-957.76C313.56,-957.76 133.02,-957.76 133.02,-957.76 127.02,-957.76 121.02,-951.76 121.02,-945.76 121.02,-945.76 121.02,-926.92 121.02,-926.92 121.02,-920.92 127.02,-914.92 133.02,-914.92 133.02,-914.92 313.56,-914.92 313.56,-914.92 319.56,-914.92 325.56,-920.92 325.56,-926.92 325.56,-926.92 325.56,-945.76 325.56,-945.76 325.56,-951.76 319.56,-957.76 313.56,-957.76"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-939.39" font-family="Arial" font-size="11.00" fill="#0b1320">4 &#160;Graph API discovers Page post IDs</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-925.89" font-family="Arial" font-size="11.00" fill="#0b1320">and optional comment IDs</text>
+</g>
+<g id="edge3" class="edge">
+<title>ratings&#45;&gt;discover</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-994.32C223.29,-986.12 223.29,-976.54 223.29,-967.61"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-967.88 223.29,-960.68 220.77,-967.88 225.81,-967.88"/>
+</g>
+<g id="node5" class="node">
+<title>scan</title>
+<path fill="#dce5ff" stroke="#315ce7" stroke-width="1.5" d="M324.06,-877.92C324.06,-877.92 122.52,-877.92 122.52,-877.92 116.52,-877.92 110.52,-871.92 110.52,-865.92 110.52,-865.92 110.52,-847.08 110.52,-847.08 110.52,-841.08 116.52,-835.08 122.52,-835.08 122.52,-835.08 324.06,-835.08 324.06,-835.08 330.06,-835.08 336.06,-841.08 336.06,-847.08 336.06,-847.08 336.06,-865.92 336.06,-865.92 336.06,-871.92 330.06,-877.92 324.06,-877.92"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-859.55" font-family="Arial" font-size="11.00" fill="#0b1320">5 &#160;Playwright scans each reaction browser</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-846.05" font-family="Arial" font-size="11.00" fill="#0b1320">within configured page and actor caps</text>
+</g>
+<g id="edge4" class="edge">
+<title>discover&#45;&gt;scan</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-914.48C223.29,-906.28 223.29,-896.7 223.29,-887.77"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-888.04 223.29,-880.84 220.77,-888.04 225.81,-888.04"/>
+</g>
+<g id="node6" class="node">
+<title>validate</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M349.18,-798.08C349.18,-798.08 97.39,-798.08 97.39,-798.08 91.39,-798.08 85.39,-792.08 85.39,-786.08 85.39,-786.08 85.39,-767.24 85.39,-767.24 85.39,-761.24 91.39,-755.24 97.39,-755.24 97.39,-755.24 349.18,-755.24 349.18,-755.24 355.18,-755.24 361.18,-761.24 361.18,-767.24 361.18,-767.24 361.18,-786.08 361.18,-786.08 361.18,-792.08 355.18,-798.08 349.18,-798.08"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-779.71" font-family="Arial" font-size="11.00" fill="#0b1320">6 &#160;Match ANGRY / HAHA label + icon&#45;source marker</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-766.21" font-family="Arial" font-size="11.00" fill="#0b1320">then accept numeric profile links only</text>
+</g>
+<g id="edge5" class="edge">
+<title>scan&#45;&gt;validate</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-834.64C223.29,-826.44 223.29,-816.86 223.29,-807.93"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-808.2 223.29,-801 220.77,-808.2 225.81,-808.2"/>
+</g>
+<g id="node7" class="node">
+<title>state</title>
+<path fill="#e4eaf0" stroke="#65788a" stroke-width="1.5" d="M318.81,-718.24C318.81,-718.24 127.77,-718.24 127.77,-718.24 121.77,-718.24 115.77,-712.24 115.77,-706.24 115.77,-706.24 115.77,-687.4 115.77,-687.4 115.77,-681.4 121.77,-675.4 127.77,-675.4 127.77,-675.4 318.81,-675.4 318.81,-675.4 324.81,-675.4 330.81,-681.4 330.81,-687.4 330.81,-687.4 330.81,-706.24 330.81,-706.24 330.81,-712.24 324.81,-718.24 318.81,-718.24"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-699.87" font-family="Arial" font-size="11.00" fill="#0b1320">7 &#160;Atomically deduplicate into JSON</text>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-686.37" font-family="Arial" font-size="11.00" fill="#0b1320">and preserve each target&#39;s stored status</text>
+</g>
+<g id="edge6" class="edge">
+<title>validate&#45;&gt;state</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-754.8C223.29,-746.6 223.29,-737.02 223.29,-728.09"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-728.36 223.29,-721.16 220.77,-728.36 225.81,-728.36"/>
+</g>
+<g id="node8" class="node">
+<title>mode</title>
+<path fill="#315ce7" stroke="#2446b8" stroke-width="1.5" d="M211.39,-636.84C211.39,-636.84 11.9,-610.62 11.9,-610.62 5.95,-609.84 5.95,-608.28 11.9,-607.5 11.9,-607.5 211.39,-581.28 211.39,-581.28 217.34,-580.5 229.24,-580.5 235.19,-581.28 235.19,-581.28 434.68,-607.5 434.68,-607.5 440.63,-608.28 440.63,-609.84 434.68,-610.62 434.68,-610.62 235.19,-636.84 235.19,-636.84 229.24,-637.62 217.34,-637.62 211.39,-636.84"/>
+<text xml:space="preserve" text-anchor="middle" x="223.29" y="-605.36" font-family="Arial" font-size="11.00" fill="#f8fafb">8 &#160;Explicit &#45;&#45;apply enabled after detection?</text>
+</g>
+<g id="edge7" class="edge">
+<title>state&#45;&gt;mode</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M223.29,-675.06C223.29,-667.04 223.29,-657.6 223.29,-648.43"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="225.81,-648.67 223.29,-641.47 220.77,-648.68 225.81,-648.67"/>
+</g>
+<g id="node9" class="node">
+<title>detect</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M269.93,-533.22C269.93,-533.22 136.64,-533.22 136.64,-533.22 130.64,-533.22 124.64,-527.22 124.64,-521.22 124.64,-521.22 124.64,-488.88 124.64,-488.88 124.64,-482.88 130.64,-476.88 136.64,-476.88 136.64,-476.88 269.93,-476.88 269.93,-476.88 275.93,-476.88 281.93,-482.88 281.93,-488.88 281.93,-488.88 281.93,-521.22 281.93,-521.22 281.93,-527.22 275.93,-533.22 269.93,-533.22"/>
+<text xml:space="preserve" text-anchor="middle" x="203.29" y="-514.85" font-family="Arial" font-size="11.00" fill="#0b1320">Detection&#45;only exit</text>
+<text xml:space="preserve" text-anchor="middle" x="203.29" y="-501.35" font-family="Arial" font-size="11.00" fill="#0b1320">pending state already saved</text>
+<text xml:space="preserve" text-anchor="middle" x="203.29" y="-487.85" font-family="Arial" font-size="11.00" fill="#0b1320">record monitoring summary</text>
+</g>
+<g id="edge8" class="edge">
+<title>mode&#45;&gt;detect</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M217.77,-579.92C215.55,-568.56 212.95,-555.3 210.57,-543.17"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="213.05,-542.71 209.19,-536.13 208.1,-543.68 213.05,-542.71"/>
+<text xml:space="preserve" text-anchor="middle" x="219.14" y="-553.17" font-family="Arial" font-size="9.00" fill="#40536a">no</text>
+</g>
+<g id="node10" class="node">
+<title>select</title>
+<path fill="#dce5ff" stroke="#315ce7" stroke-width="1.5" d="M547.18,-526.47C547.18,-526.47 319.39,-526.47 319.39,-526.47 313.39,-526.47 307.39,-520.47 307.39,-514.47 307.39,-514.47 307.39,-495.63 307.39,-495.63 307.39,-489.63 313.39,-483.63 319.39,-483.63 319.39,-483.63 547.18,-483.63 547.18,-483.63 553.18,-483.63 559.18,-489.63 559.18,-495.63 559.18,-495.63 559.18,-514.47 559.18,-514.47 559.18,-520.47 553.18,-526.47 547.18,-526.47"/>
+<text xml:space="preserve" text-anchor="middle" x="433.29" y="-508.1" font-family="Arial" font-size="11.00" fill="#0b1320">9 &#160;Select a bounded set where status = pending</text>
+<text xml:space="preserve" text-anchor="middle" x="433.29" y="-494.6" font-family="Arial" font-size="11.00" fill="#0b1320">including targets from earlier cycles</text>
+</g>
+<g id="edge9" class="edge">
+<title>mode&#45;&gt;select</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M270.42,-585.17C303.42,-569.14 347.5,-547.72 381.49,-531.21"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="382.34,-533.6 387.72,-528.19 380.14,-529.07 382.34,-533.6"/>
+<text xml:space="preserve" text-anchor="middle" x="341.71" y="-553.17" font-family="Arial" font-size="9.00" fill="#40536a">yes</text>
+</g>
+<g id="node11" class="node">
+<title>pending</title>
+<path fill="#315ce7" stroke="#2446b8" stroke-width="1.5" d="M421.54,-437.46C421.54,-437.46 302.75,-412.96 302.75,-412.96 296.88,-411.75 296.88,-409.33 302.75,-408.12 302.75,-408.12 421.54,-383.62 421.54,-383.62 427.41,-382.41 439.17,-382.41 445.04,-383.62 445.04,-383.62 563.83,-408.12 563.83,-408.12 569.7,-409.33 569.7,-411.75 563.83,-412.96 563.83,-412.96 445.04,-437.46 445.04,-437.46 439.17,-438.67 427.41,-438.67 421.54,-437.46"/>
+<text xml:space="preserve" text-anchor="middle" x="433.29" y="-406.84" font-family="Arial" font-size="11.00" fill="#f8fafb">Pending target selected?</text>
+</g>
+<g id="edge10" class="edge">
+<title>select&#45;&gt;pending</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M433.29,-483.06C433.29,-473.23 433.29,-461.2 433.29,-449.84"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="435.81,-450.13 433.29,-442.94 430.77,-450.14 435.81,-450.13"/>
+</g>
+<g id="node12" class="node">
+<title>no_action</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M487.43,-334.7C487.43,-334.7 339.14,-334.7 339.14,-334.7 333.14,-334.7 327.14,-328.7 327.14,-322.7 327.14,-322.7 327.14,-290.36 327.14,-290.36 327.14,-284.36 333.14,-278.36 339.14,-278.36 339.14,-278.36 487.43,-278.36 487.43,-278.36 493.43,-278.36 499.43,-284.36 499.43,-290.36 499.43,-290.36 499.43,-322.7 499.43,-322.7 499.43,-328.7 493.43,-334.7 487.43,-334.7"/>
+<text xml:space="preserve" text-anchor="middle" x="413.29" y="-316.33" font-family="Arial" font-size="11.00" fill="#0b1320">No target selected</text>
+<text xml:space="preserve" text-anchor="middle" x="413.29" y="-302.83" font-family="Arial" font-size="11.00" fill="#0b1320">no moderation outcome update</text>
+<text xml:space="preserve" text-anchor="middle" x="413.29" y="-289.33" font-family="Arial" font-size="11.00" fill="#0b1320">report selected = 0</text>
+</g>
+<g id="edge11" class="edge">
+<title>pending&#45;&gt;no_action</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M427.82,-381.67C425.58,-370.2 422.94,-356.75 420.53,-344.47"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="423.07,-344.33 419.21,-337.75 418.13,-345.3 423.07,-344.33"/>
+<text xml:space="preserve" text-anchor="middle" x="429.14" y="-354.65" font-family="Arial" font-size="9.00" fill="#40536a">no</text>
+</g>
+<g id="node13" class="node">
+<title>origin</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M767.68,-324.53C767.68,-324.53 536.89,-324.53 536.89,-324.53 530.89,-324.53 524.89,-318.53 524.89,-312.53 524.89,-312.53 524.89,-300.53 524.89,-300.53 524.89,-294.53 530.89,-288.53 536.89,-288.53 536.89,-288.53 767.68,-288.53 767.68,-288.53 773.68,-288.53 779.68,-294.53 779.68,-300.53 779.68,-300.53 779.68,-312.53 779.68,-312.53 779.68,-318.53 773.68,-324.53 767.68,-324.53"/>
+<text xml:space="preserve" text-anchor="middle" x="652.29" y="-302.83" font-family="Arial" font-size="11.00" fill="#0b1320">10 &#160;Reverify the target&#39;s originating Page identity</text>
+</g>
+<g id="edge12" class="edge">
+<title>pending&#45;&gt;origin</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M476.56,-389.39C513.87,-372 567.63,-346.96 605.84,-329.16"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="606.58,-331.6 612.04,-326.28 604.45,-327.04 606.58,-331.6"/>
+<text xml:space="preserve" text-anchor="middle" x="556.48" y="-354.65" font-family="Arial" font-size="9.00" fill="#40536a">yes</text>
+</g>
+<g id="node14" class="node">
+<title>verified</title>
+<path fill="#315ce7" stroke="#2446b8" stroke-width="1.5" d="M640.52,-239.01C640.52,-239.01 517.27,-214.37 517.27,-214.37 511.38,-213.2 511.38,-210.84 517.27,-209.67 517.27,-209.67 640.52,-185.03 640.52,-185.03 646.41,-183.86 658.17,-183.86 664.06,-185.03 664.06,-185.03 787.31,-209.67 787.31,-209.67 793.2,-210.84 793.2,-213.2 787.31,-214.37 787.31,-214.37 664.06,-239.01 664.06,-239.01 658.17,-240.18 646.41,-240.18 640.52,-239.01"/>
+<text xml:space="preserve" text-anchor="middle" x="652.29" y="-208.32" font-family="Arial" font-size="11.00" fill="#f8fafb">Originating Page verified?</text>
+</g>
+<g id="edge13" class="edge">
+<title>origin&#45;&gt;verified</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M652.29,-288.13C652.29,-277.79 652.29,-264.24 652.29,-251.5"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="654.81,-251.6 652.29,-244.4 649.77,-251.6 654.81,-251.6"/>
+</g>
+<g id="node15" class="node">
+<title>fail</title>
+<path fill="#f7e4e1" stroke="#b94238" stroke-width="1.5" d="M617.31,-136.18C617.31,-136.18 477.27,-136.18 477.27,-136.18 471.27,-136.18 465.27,-130.18 465.27,-124.18 465.27,-124.18 465.27,-105.34 465.27,-105.34 465.27,-99.34 471.27,-93.34 477.27,-93.34 477.27,-93.34 617.31,-93.34 617.31,-93.34 623.31,-93.34 629.31,-99.34 629.31,-105.34 629.31,-105.34 629.31,-124.18 629.31,-124.18 629.31,-130.18 623.31,-136.18 617.31,-136.18"/>
+<text xml:space="preserve" text-anchor="middle" x="547.29" y="-117.81" font-family="Arial" font-size="11.00" fill="#0b1320">Fail closed before submission</text>
+<text xml:space="preserve" text-anchor="middle" x="547.29" y="-104.31" font-family="Arial" font-size="11.00" fill="#0b1320">record failed</text>
+</g>
+<g id="edge14" class="edge">
+<title>verified&#45;&gt;fail</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M626.06,-187.23C611.21,-173.75 592.57,-156.84 577.16,-142.86"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="579.15,-141.26 572.12,-138.29 575.76,-144.99 579.15,-141.26"/>
+<text xml:space="preserve" text-anchor="middle" x="605.04" y="-156.13" font-family="Arial" font-size="9.00" fill="#40536a">no</text>
+</g>
+<g id="node16" class="node">
+<title>block</title>
+<path fill="#dce5ff" stroke="#315ce7" stroke-width="1.5" d="M850.06,-136.18C850.06,-136.18 666.52,-136.18 666.52,-136.18 660.52,-136.18 654.52,-130.18 654.52,-124.18 654.52,-124.18 654.52,-105.34 654.52,-105.34 654.52,-99.34 660.52,-93.34 666.52,-93.34 666.52,-93.34 850.06,-93.34 850.06,-93.34 856.06,-93.34 862.06,-99.34 862.06,-105.34 862.06,-105.34 862.06,-124.18 862.06,-124.18 862.06,-130.18 856.06,-136.18 850.06,-136.18"/>
+<text xml:space="preserve" text-anchor="middle" x="758.29" y="-117.81" font-family="Arial" font-size="11.00" fill="#0b1320">11 &#160;Confirm numeric target profile</text>
+<text xml:space="preserve" text-anchor="middle" x="758.29" y="-104.31" font-family="Arial" font-size="11.00" fill="#0b1320">and submit block through Facebook UI</text>
+</g>
+<g id="edge15" class="edge">
+<title>verified&#45;&gt;block</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M678.76,-187.23C693.76,-173.75 712.57,-156.84 728.14,-142.86"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="729.56,-144.97 733.23,-138.28 726.19,-141.22 729.56,-144.97"/>
+<text xml:space="preserve" text-anchor="middle" x="721.91" y="-156.13" font-family="Arial" font-size="9.00" fill="#40536a">yes</text>
+</g>
+<g id="node17" class="node">
+<title>finish</title>
+<path fill="#f8fafb" stroke="#65788a" stroke-width="1.5" d="M760.93,-56.34C760.93,-56.34 543.64,-56.34 543.64,-56.34 537.64,-56.34 531.64,-50.34 531.64,-44.34 531.64,-44.34 531.64,-12 531.64,-12 531.64,-6 537.64,0 543.64,0 543.64,0 760.93,0 760.93,0 766.93,0 772.93,-6 772.93,-12 772.93,-12 772.93,-44.34 772.93,-44.34 772.93,-50.34 766.93,-56.34 760.93,-56.34"/>
+<text xml:space="preserve" text-anchor="middle" x="652.29" y="-37.97" font-family="Arial" font-size="11.00" fill="#0b1320">12 &#160;Apply attempt outcome</text>
+<text xml:space="preserve" text-anchor="middle" x="652.29" y="-24.47" font-family="Arial" font-size="11.00" fill="#0b1320">atomically record submitted / failed / uncertain</text>
+<text xml:space="preserve" text-anchor="middle" x="652.29" y="-10.97" font-family="Arial" font-size="11.00" fill="#0b1320">optional Telegram moderation summary</text>
+</g>
+<g id="edge16" class="edge">
+<title>fail&#45;&gt;finish</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M573.52,-92.63C584.69,-83.63 598,-72.91 610.47,-62.86"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="611.78,-65.04 615.8,-58.56 608.61,-61.12 611.78,-65.04"/>
+</g>
+<g id="edge17" class="edge">
+<title>block&#45;&gt;finish</title>
+<path fill="none" stroke="#315ce7" stroke-width="1.6" d="M731.82,-92.63C720.54,-83.63 707.1,-72.91 694.51,-62.86"/>
+<polygon fill="#315ce7" stroke="#315ce7" stroke-width="1.6" points="696.31,-61.08 689.11,-58.56 693.17,-65.02 696.31,-61.08"/>
+</g>
+</g>
+</svg>

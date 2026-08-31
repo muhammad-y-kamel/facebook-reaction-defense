@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic workflow walkthrough</title>
+  <desc id="desc">A synthetic workflow separating Graph content discovery, authenticated bounded Playwright actor scanning with label and icon-marker validation, flock-protected atomic JSON state, detection-only operation, and explicit Page-scoped blocking.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#315CE7"/>
+    </marker>
+    <style>
+      .ink{fill:#0B1320}.muted{fill:#4C5B6B}.surface{fill:#F8FAFB;stroke:#65788A;stroke-width:2}.primary{fill:#DCE5FF;stroke:#315CE7;stroke-width:2}.signal{fill:#F7E4E1;stroke:#B94238;stroke-width:2}.label{font:700 16px Arial,sans-serif;letter-spacing:1.6px}.title{font:700 38px Arial,sans-serif}.subtitle{font:400 20px Arial,sans-serif}.head{font:700 24px Arial,sans-serif}.body{font:400 18px Arial,sans-serif}.mono{font:600 17px 'Cascadia Mono','Courier New',monospace}.arrow{stroke:#315CE7;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#EEF2F5"/>
+  <text x="80" y="66" class="label muted">SYNTHETIC WALKTHROUGH · NO LIVE DATA</text>
+  <text x="80" y="118" class="title ink">A bounded path from Page content to scoped moderation</text>
+  <text x="80" y="154" class="subtitle muted">Portfolio visualization based on the implemented workflow.</text>
+
+  <rect x="80" y="194" width="1440" height="98" rx="14" class="signal"/>
+  <text x="112" y="232" class="label" fill="#7D2E28">OPTIONAL RATINGS · CHECKED FIRST</text>
+  <text x="112" y="266" class="body ink">Graph rating event</text>
+  <path d="M310 260H380" class="arrow"/>
+  <text x="414" y="266" class="body ink">Validate + atomically deduplicate</text>
+  <path d="M734 260H804" class="arrow"/>
+  <text x="838" y="266" class="body ink">New Arabic keyword match</text>
+  <path d="M1104 260H1174" class="arrow"/>
+  <text x="1208" y="266" class="body" fill="#7D2E28">Optional alert only · never block</text>
+
+  <rect x="80" y="336" width="390" height="250" rx="14" class="surface"/>
+  <text x="112" y="378" class="label muted">1 · GRAPH API</text>
+  <text x="112" y="423" class="head ink">Content discovery only</text>
+  <text x="112" y="467" class="mono ink">PAGE POST IDENTIFIER</text>
+  <text x="112" y="502" class="mono ink">OPTIONAL COMMENT IDENTIFIER</text>
+  <text x="112" y="548" class="body muted">No reaction-actor collection</text>
+
+  <path d="M470 460H548" class="arrow"/>
+
+  <rect x="550" y="336" width="480" height="250" rx="14" class="primary"/>
+  <text x="582" y="378" class="label" fill="#2446B8">2 · AUTHENTICATED PLAYWRIGHT</text>
+  <text x="582" y="423" class="head ink">Bounded reaction-browser scan</text>
+  <text x="582" y="467" class="body ink">ANGRY / HAHA label + icon-source marker</text>
+  <text x="582" y="502" class="body ink">Numeric Facebook profile links only</text>
+  <text x="582" y="548" class="body muted">Page cap · pagination cap · actor cap</text>
+
+  <path d="M1030 460H1108" class="arrow"/>
+
+  <rect x="1110" y="336" width="410" height="250" rx="14" class="surface"/>
+  <text x="1142" y="378" class="label muted">3 · ATOMIC JSON STATE</text>
+  <text x="1142" y="423" class="head ink">Deduplicate and preserve status</text>
+  <text x="1142" y="467" class="body ink">Exclusive flock · validated schema</text>
+  <text x="1142" y="502" class="body ink">Atomic replacement on every save</text>
+  <text x="1142" y="548" class="body" fill="#2446B8">pending persists across cycles</text>
+
+  <path d="M1315 586V632" class="arrow"/>
+
+  <rect x="80" y="636" width="380" height="150" rx="14" class="surface"/>
+  <text x="112" y="678" class="label muted">DEFAULT</text>
+  <text x="112" y="720" class="head ink">Detection-only</text>
+  <text x="112" y="756" class="body muted">Read, record, leave pending · no block</text>
+
+  <rect x="500" y="636" width="1020" height="150" rx="14" class="primary"/>
+  <text x="532" y="678" class="label" fill="#2446B8">EXPLICIT --APPLY · BOUNDED PENDING SET</text>
+  <text x="532" y="720" class="head ink">Reverify originating Page</text>
+  <path d="M842 714H878" class="arrow"/>
+  <text x="900" y="720" class="head ink">Confirm numeric profile</text>
+  <path d="M1192 714H1230" class="arrow"/>
+  <text x="1264" y="720" class="head ink">Scoped UI block</text>
+  <text x="532" y="760" class="body muted">Atomic outcome:</text>
+  <text x="680" y="760" class="mono" fill="#2446B8">submitted · failed · uncertain</text>
+  <text x="1488" y="760" text-anchor="end" class="body" fill="#7D2E28">uncertain identity → fail closed</text>
+
+  <text x="80" y="852" class="subtitle muted">Monitor → Detect → Deduplicate → Moderate → Log</text>
+  <text x="1520" y="852" text-anchor="end" class="label muted">ORIGINAL CREATOR AND AUTOMATION DEVELOPER</text>
+</svg>

@@ -1,0 +1,31 @@
+flowchart TB
+    START["Begin locked monitoring cycle"] --> RATINGS["Optional ratings check first<br/>new Arabic match → alert only"]
+    RATINGS --> GRAPH["Graph API discovers<br/>post / comment IDs only"]
+    GRAPH --> SCAN["Complete authenticated Playwright scan<br/>within page and actor caps"]
+    SCAN --> VALID{"Any row matches ANGRY / HAHA label + icon-source marker<br/>and a numeric profile link?"}
+    VALID -->|no matches| MODE{"Explicit --apply enabled?"}
+    VALID -->|yes| STATE["Atomic JSON record / dedupe of matches<br/>preserve stored target statuses"]
+    STATE -->|after bounded scan| MODE
+    MODE -->|no| DETECT["Leave all pending targets<br/>for a later apply run"]
+    MODE -->|yes| PENDING{"Stored target status is pending?<br/>including earlier cycles"}
+    PENDING -->|no| KEEP["Keep non-pending status<br/>no automatic resubmission"]
+    PENDING -->|yes| SELECT["Select within moderation action cap"]
+    SELECT --> PAGE{"Originating Page<br/>reverified?"}
+    PAGE -->|no| FAIL["Fail closed<br/>submit nothing; record failed"]
+    PAGE -->|yes| TARGET["Confirm numeric target profile"]
+    TARGET --> BLOCK["Submit scoped block<br/>through Facebook UI"]
+    DETECT --> NOACTION["No moderation outcome update<br/>preserve stored target status<br/>emit cycle summary"]
+    KEEP --> NOACTION
+    FAIL --> OUT
+    BLOCK --> OUT
+
+    OUT["Moderation attempt outcome<br/>atomic status: submitted / failed / uncertain<br/>optional Telegram summary"]
+
+    classDef primary fill:#DCE5FF,stroke:#315CE7,color:#0B1320,stroke-width:2px;
+    classDef decision fill:#315CE7,stroke:#2446B8,color:#F8FAFB,stroke-width:2px;
+    classDef neutral fill:#F8FAFB,stroke:#65788A,color:#0B1320;
+    classDef signal fill:#F7E4E1,stroke:#B94238,color:#0B1320;
+    class START,SELECT,BLOCK primary;
+    class VALID,MODE,PENDING,PAGE decision;
+    class GRAPH,SCAN,STATE,KEEP,DETECT,TARGET,NOACTION,OUT neutral;
+    class RATINGS,FAIL signal;

@@ -1,0 +1,81 @@
+{
+  "project": "Facebook Page Reaction Abuse Monitoring and Moderation Automation",
+  "measurement_policy": {
+    "verified": "Read directly from my historical operating configuration.",
+    "derived": "Calculated deterministically from my private historical runtime records.",
+    "unavailable": "Not supported by my available operating records."
+  },
+  "metrics": [
+    {
+      "name": "Page pollers in historical launcher",
+      "classification": "Verified",
+      "value": 2,
+      "unit": "pollers",
+      "limit": "Configured processes, not a claim of current deployment."
+    },
+    {
+      "name": "Polling interval",
+      "classification": "Verified",
+      "value": 8,
+      "unit": "seconds",
+      "limit": "Configured sleep between cycles in both historical pollers."
+    },
+    {
+      "name": "Unique queued post URL strings",
+      "classification": "Derived",
+      "value": 28,
+      "unit": "unique strings",
+      "limit": "Not the total number of posts checked."
+    },
+    {
+      "name": "Unique queued profile URL strings",
+      "classification": "Derived",
+      "value": 210,
+      "unit": "unique strings",
+      "limit": "Not a count of provider-confirmed moderation outcomes."
+    },
+    {
+      "name": "UI confirmation-click log markers",
+      "classification": "Derived",
+      "value": 254,
+      "unit": "log markers",
+      "limit": "A local click marker does not confirm the final Facebook state."
+    },
+    {
+      "name": "Block-menu-not-found markers",
+      "classification": "Derived",
+      "value": 102,
+      "unit": "log markers",
+      "limit": "One recorded UI failure condition only."
+    },
+    {
+      "name": "Completed-batch markers",
+      "classification": "Derived",
+      "value": 119,
+      "unit": "log markers",
+      "limit": "Local batch completion does not prove every action succeeded."
+    },
+    {
+      "name": "Historical log date range",
+      "classification": "Derived",
+      "value": {
+        "from": "2025-05-14",
+        "to": "2025-05-29"
+      },
+      "unit": "date range",
+      "limit": "Earliest and latest parsed timestamps in my historical runtime log."
+    }
+  ],
+  "unavailable": [
+    "Provider-confirmed successful blocks",
+    "Unique accounts ultimately moderated",
+    "Total posts checked",
+    "Total comments checked",
+    "Total reaction records processed",
+    "Detection precision or recall",
+    "Response-time reduction",
+    "Moderation hours saved",
+    "Current uptime or deployment status",
+    "Business or reputation impact"
+  ]
+}
